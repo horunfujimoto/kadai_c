@@ -18,6 +18,8 @@ class User < ApplicationRecord
   # 与フォロー関係を通じて参照→自分がフォローしている人
   has_many :followings, through: :relationships, source: :followed
 
+  has_many :group_users, dependent: :destroy
+
   has_one_attached :profile_image
 
   validates :name, uniqueness: true, length: { minimum: 2, maximum: 20 }
