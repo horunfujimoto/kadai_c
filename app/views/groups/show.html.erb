@@ -35,9 +35,8 @@
             <td>
               <% if @group.owner_id == current_user.id %>
                 <%= link_to "Edit", edit_group_path(@group), class: "btn btn-success" %>
+                <%= link_to 'Notice an Event',group_new_mail_path(@group), class: "btn btn-sm btn-info" %>
               <% else %>
-
-              <%= link_to 'Notice an Event',group_new_mail_path(@group), class: "btn btn-sm btn-info" %>
 
                 <% if @group.include_user?(current_user) %>
                   <%= link_to "Leave this group", group_group_users_path(@group), method: :delete, class: "btn btn-danger" %>
